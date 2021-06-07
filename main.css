@@ -3,7 +3,7 @@
 :root {
   --clr-red: #c12d2d;
   --clr-white: #f4f4f4;
-  --clr-overlay: #4b3232;
+  --clr-overlay: rgba(75, 50, 50, 0.72);
 }
 
 /* UNIVERSAL STYLING */
@@ -14,9 +14,15 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  font-weight: 300;
   margin: 0;
   padding: 0;
   background-color: var(--clr-white);
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 .site-wrapper {
@@ -45,7 +51,14 @@ body {
 /* HEADER NAVIGATION */
 
 #header__nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  padding: 1rem 0;
+  width: 100%;
   background-color: var(--clr-red);
+  z-index: 100;
 }
 
 #nav-logo,
@@ -56,10 +69,62 @@ body {
 
 #nav-logo {
   font-size: 2em;
-  margin: 1rem 0;
+  margin: 0;
 }
 
 #header__menu-items a {
   margin-left: 30px;
   text-decoration: none;
+}
+
+#header__menu-items a:hover {
+  border-bottom: solid 1px var(--clr-white);
+}
+
+/* HERO SECTIONN */
+
+#section__hero {
+  position: relative;
+  top: 80px;
+}
+
+#section__hero::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--clr-overlay);
+}
+
+#section__hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  text-align: center;
+
+  color: var(--clr-white);
+}
+
+#section__hero-title h1 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+  margin: 0;
+}
+
+#section__hero-title h3 {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+@media (max-width: 375px) {
+  #section__hero {
+    top: 105px;
+  }
 }
