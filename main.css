@@ -59,6 +59,7 @@ img {
   grid-template-columns: 1fr 2fr;
   grid-template-areas: 'box1 box2 box2';
   gap: 2rem;
+  align-items: center;
 }
 
 @media (max-width: 500px) {
@@ -170,7 +171,7 @@ img {
 }
 
 .form-field {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 label {
@@ -222,6 +223,18 @@ textarea {
   color: var(--clr-white);
   font-size: 1rem;
   width: 100px;
+}
+
+/* FOOTER */
+
+footer {
+  background-color: black;
+  padding: 1rem;
+}
+
+footer p {
+  margin: 0;
+  color: var(--clr-white);
 }
 
 /* RESPONSIVE */
