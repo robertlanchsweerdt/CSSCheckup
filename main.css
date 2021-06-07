@@ -20,14 +20,14 @@ body {
   background-color: var(--clr-white);
 }
 
-section:not(:nth-child(2)) {
-  margin-top: 10rem;
-}
-
 h2 {
   font-weight: 400;
   font-size: 1.6rem;
   text-transform: uppercase;
+}
+
+p {
+  text-align: justify;
 }
 
 img {
@@ -38,6 +38,9 @@ img {
 .site-wrapper {
   width: min(1440px, 100%);
   margin: 0 auto;
+  box-shadow: 1px 1px 11px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 1px 11px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 11px 1px rgba(0, 0, 0, 0.75);
 }
 
 .container {
@@ -70,10 +73,9 @@ img {
 #header__nav {
   position: fixed;
   top: 0;
-  left: 0;
 
   padding: 1rem 0;
-  width: 100%;
+  width: min(1440px, 100%);
   background-color: var(--clr-red);
   z-index: 100;
 }
@@ -129,19 +131,25 @@ img {
 
 #section__hero-title h1 {
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 8vw, 6rem);
   font-weight: 600;
   letter-spacing: 5px;
+  line-height: 1em;
   margin: 0;
 }
 
 #section__hero-title h3 {
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 2vw, 2rem);
   font-weight: 300;
   margin: 0;
 }
 
 /* ABOUT SECTION */
+
+#about {
+  margin-top: 10rem;
+  margin-bottom: 5.5rem;
+}
 
 .img-circle {
   grid-area: box1;
@@ -153,6 +161,69 @@ img {
   border: solid 2px var(--clr-red);
 }
 
+/* CONTACT SECTION */
+
+#contact {
+  background-color: var(--clr-overlay);
+  color: var(--clr-white);
+  padding: 2rem 0;
+}
+
+.form-field {
+  padding: 1rem;
+}
+
+label {
+  display: block;
+  width: 150px;
+}
+
+input {
+  height: 1.8rem;
+}
+
+textarea {
+  height: 8rem;
+}
+
+input,
+textarea {
+  width: 300px;
+}
+
+#form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: 'form pic';
+  gap: 2rem;
+}
+
+#form-wrapper div img {
+  grid-area: pic;
+}
+
+.btn-wrapper {
+  background-color: var(--clr-red);
+  width: 300px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: background-color 300ms ease;
+}
+
+.btn-wrapper:hover {
+  background-color: var(--clr-overlay);
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  color: var(--clr-white);
+  font-size: 1rem;
+  width: 100px;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 375px) {
@@ -161,11 +232,26 @@ img {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .efa-grid {
     grid-template-columns: 1fr;
     grid-template-areas:
       'box1'
       'box2';
+    place-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    text-align: center;
+  }
+
+  #form-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'form'
+      'pic';
+    place-items: center;
   }
 }
